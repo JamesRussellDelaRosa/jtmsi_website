@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Import useState
 import './App.css';
-import logo from './logo.svg'; // Importing the logo
+import logo from './logo.png'; // Importing the JTMSI logo
 
 function App() {
   const [formData, setFormData] = useState({
@@ -70,7 +70,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="logo-container">
-          <img src={logo} className="App-logo-graphic" alt="TechSolutions Pro Graphic" />
+          <img src={logo} className="App-logo-graphic" alt="Jeannies Touch Manpower Services Inc. Logo" />
           <span className="logo-text">Jeannies Touch Manpower Services Inc.</span>
         </div>
         <nav className="App-nav">
@@ -85,17 +85,16 @@ function App() {
       <main>
         <section id="home" className="hero-section">
           <div className="hero-content">
-            <h2>Innovative Technology Solutions for Modern Business</h2>
-            <p>We deliver cutting-edge technology solutions that transform your business operations and drive sustainable growth in the digital era.</p>
-            <button className="cta-button">Get Started Today</button>
+            <h2>Quality Manpower Solutions for Your Business Success</h2>
+            <p>We provide reliable and skilled workforce solutions to help your business thrive. From recruitment to workforce management, we deliver excellence in human resource services.</p>
+            <button className="cta-button">Connect With Us Today</button>
           </div>
         </section>
 
         <section id="about" className="content-section">
           <h2>About Our Company</h2>
           <p>
-            We are a passionate team dedicated to delivering excellence. Our mission is to empower clients through technology and creative strategies.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Jeannies Touch Manpower Services Inc. is a trusted partner in workforce solutions. We specialize in connecting skilled professionals with businesses that need quality talent. Our commitment to excellence and personalized service has made us a leader in the manpower industry, helping both employers and job seekers achieve their goals.
           </p>
         </section>
 
@@ -103,29 +102,29 @@ function App() {
           <h2>Our Services</h2>
           <div className="services-grid">
             <div className="service-item">
-              <h3>Web Development</h3>
-              <p>Creating responsive and high-performing websites tailored to your needs.</p>
+              <h3>Staff Recruitment</h3>
+              <p>Professional recruitment services to find the right talent for your organization's needs.</p>
             </div>
             <div className="service-item">
-              <h3>UI/UX Design</h3>
-              <p>Crafting intuitive and engaging user experiences that delight users.</p>
+              <h3>Workforce Management</h3>
+              <p>Comprehensive workforce solutions including scheduling, compliance, and performance management.</p>
             </div>
             <div className="service-item">
-              <h3>Digital Marketing</h3>
-              <p>Boosting your online presence and connecting you with your target audience.</p>
+              <h3>Training & Development</h3>
+              <p>Skills development programs to enhance your team's capabilities and productivity.</p>
             </div>
           </div>
         </section>
 
-        <section id="team"  className="content-section"> {/* Added className for consistent styling */}
+        <section id="team" className="content-section">
           <h2>Our Team</h2>
           <div className="team-member">
-            <h3>John Doe</h3>
-            <p>CEO & Founder</p>
+            <h3>Jeannie Santos</h3>
+            <p>Founder & CEO</p>
           </div>
           <div className="team-member">
-            <h3>Jane Smith</h3>
-            <p>Chief Technology Officer</p>
+            <h3>Maria Rodriguez</h3>
+            <p>HR Director</p>
           </div>
         </section>
 
@@ -160,14 +159,14 @@ function App() {
           </form>
           {formStatus && <p className="form-status">{formStatus}</p>}
           <div className="contact-details">
-            <p>Email: contact@companyname.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
+            <p>Email: info@jtmsi.com</p>
+            <p>Phone: +63 (02) 8123-4567</p>
           </div>
         </section>
       </main>
 
       <footer className="App-footer">
-        <p>&copy; 2025 TechSolutions Pro. All Rights Reserved.</p>
+        <p>&copy; 2025 Jeannies Touch Manpower Services Inc. All Rights Reserved.</p>
       </footer>
     </div>
   );
