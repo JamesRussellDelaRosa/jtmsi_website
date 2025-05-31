@@ -9,7 +9,9 @@ function App() {
     message: ''
   });
   const [formStatus, setFormStatus] = useState(''); // To show success/error messages
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const observerRef = useRef(null);
+  const headerRef = useRef(null);
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -39,6 +41,23 @@ function App() {
     };
   }, []);
 
+  // Scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = headerRef.current;
+      if (header) {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (event) => {
     event.preventDefault();
     const clickedLink = event.currentTarget; // Store a reference to the clicked link
@@ -56,7 +75,14 @@ function App() {
           clickedLink.classList.remove('nav-link-jump');
         }
       }, 300); // Duration should match CSS animation duration
+      
+      // Close mobile menu after clicking
+      setMobileMenuOpen(false);
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const handleInputChange = (event) => {
@@ -97,12 +123,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" ref={headerRef}>
         <div className="logo-container">
           <img src={logo} className="App-logo-graphic" alt="Jeannies Touch Manpower Services Inc. Logo" />
           <span className="logo-text">Jeannies Touch Manpower Services Inc.</span>
         </div>
-        <nav className="App-nav">
+        <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav className={`App-nav ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}>
           <a href="#home" onClick={handleNavClick}>Home</a>
           <a href="#about" onClick={handleNavClick}>About</a>
           <a href="#services" onClick={handleNavClick}>Services</a>

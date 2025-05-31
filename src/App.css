@@ -63,6 +63,52 @@ body {
   align-items: center;
   border-bottom: 3px solid var(--primary-blue);
   box-shadow: 0 2px 10px rgba(46, 91, 186, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.App-header.scrolled {
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(46, 91, 186, 0.15);
+  border-bottom: 2px solid var(--primary-blue);
+}
+
+.App-header.scrolled .App-logo-graphic {
+  height: 40px;
+  width: 40px;
+}
+
+.App-header.scrolled .logo-text {
+  font-size: 1.6em;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-blue);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle:hover span {
+  background: var(--primary-green);
 }
 
 .logo-container {
@@ -794,35 +840,85 @@ main section:last-child {
 /* Basic Responsive Design */
 @media (max-width: 768px) {
   .App-header {
-    flex-direction: column;
-    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
     background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 50%, var(--light-green) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: auto;
   }
+  
+  .App-header.scrolled {
+    padding: 10px 20px;
+  }
+  
   .logo-container {
-    margin-bottom: 15px;
+    margin-bottom: 0;
+    flex: 1;
   }
+  
+  .logo-container .App-logo-graphic {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .logo-container .logo-text {
+    font-size: 1.2em;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
   .App-nav {
-    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 20px rgba(46, 91, 186, 0.2);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    padding: 20px;
+    gap: 10px;
   }
+  
+  .App-nav.mobile-menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
   .App-nav a {
-    margin: 10px 0;
-    font-size: 1.2em;
-    padding: 5px 15px;
-    border-radius: 20px;
+    margin: 0;
+    font-size: 1.1em;
+    padding: 12px 20px;
+    border-radius: 10px;
     transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent;
   }
+  
   .App-nav a:hover {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
     color: var(--white);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    border-color: var(--primary-blue);
   }
+  
+  .hero-section {
+    padding-top: 40px;
+  }
+  
   .hero-section h2 {
     font-size: 2.2em;
   }
@@ -834,6 +930,42 @@ main section:last-child {
   }
   .service-item {
     margin-bottom: 20px;
+  }
+}
+
+/* Large tablets and small desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .App-header {
+    padding: 18px 35px;
+  }
+  
+  .logo-container .logo-text {
+    font-size: 1.6em;
+  }
+  
+  .App-nav a {
+    margin: 0 12px;
+    font-size: 1em;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .App-header {
+    padding: 12px 15px;
+  }
+  
+  .App-header.scrolled {
+    padding: 8px 15px;
+  }
+  
+  .logo-container .logo-text {
+    font-size: 1em;
+  }
+  
+  .logo-container .App-logo-graphic {
+    height: 30px;
+    width: 30px;
   }
 }
 
