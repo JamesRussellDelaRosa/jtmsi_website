@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/jtmsi_website/static/css/main.54716e9f.css",
+    "main.js": "/jtmsi_website/static/js/main.843b5e0a.js",
+    "static/js/453.9b0328c9.chunk.js": "/jtmsi_website/static/js/453.9b0328c9.chunk.js",
+    "static/media/logo.png": "/jtmsi_website/static/media/logo.c07ed859d32932ae0147.png",
+    "index.html": "/jtmsi_website/index.html",
+    "main.54716e9f.css.map": "/jtmsi_website/static/css/main.54716e9f.css.map",
+    "main.843b5e0a.js.map": "/jtmsi_website/static/js/main.843b5e0a.js.map",
+    "453.9b0328c9.chunk.js.map": "/jtmsi_website/static/js/453.9b0328c9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54716e9f.css",
+    "static/js/main.843b5e0a.js"
+  ]
+}
