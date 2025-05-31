@@ -1,5 +1,16 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #333; /* Default text color */
+}
+
 .App {
-  text-align: center;
+  text-align: left; /* Changed from center to left for typical website layout */
 }
 
 .App-logo {
@@ -14,18 +25,247 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #fff; /* White background for header */
+  padding: 20px 40px; /* Added more horizontal padding */
+  color: #333; /* Dark text color for header elements */
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 1px solid #eee; /* Subtle border */
 }
 
-.App-link {
-  color: #61dafb;
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.App-logo-graphic {
+  height: 40px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #2c3e50; /* A slightly softer black for the logo text */
+}
+
+.App-nav a {
+  color: #555; /* Dark grey for nav links */
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.App-nav a:hover,
+.App-nav a.active { /* Style for active link if you implement routing */
+  color: #007bff; /* Blue color on hover/active */
+  text-decoration: none;
+}
+
+/* Jumpy Animation for Nav Links */
+@keyframes jumpAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.nav-link-jump {
+  animation: jumpAnimation 0.3s ease-in-out;
+}
+
+main section {
+  padding: 60px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+main section:last-child {
+  border-bottom: none;
+}
+
+.hero-section {
+  background-color: #4a4a4a; /* Dark grey background from image */
+  color: white;
+  text-align: left; /* Text aligned to the left as in the image */
+  padding: 80px 40px; /* Increased padding */
+}
+
+.hero-content {
+  max-width: 700px; /* Limit width of hero content */
+}
+
+.hero-section h2 {
+  font-size: 2.8em; /* Larger font size for hero heading */
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #007bff; /* Blue button color from image */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.content-section {
+  /* Standard padding is already applied in main section */
+  /* Styles for h2 within content-section are below */
+}
+
+.content-section h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center; /* Center section titles */
+}
+
+.alt-background {
+  background-color: #f8f9fa; /* Light grey for alternating sections */
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.service-item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.service-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-member h3 {
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-style: italic;
+  color: #555;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 30px auto; /* Center form and add bottom margin */
+  display: grid;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .cta-button {
+  width: auto;
+  justify-self: center; /* Center button within the grid cell */
+}
+
+.contact-details {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-details p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.App-footer {
+  background-color: #343a40; /* Dark footer background */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px; /* Space above the footer */
+}
+
+/* Form Status Messages */
+.form-status {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.form-status.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Basic Responsive Design */
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .logo-container {
+    margin-bottom: 15px;
+  }
+  .App-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .App-nav a {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  .hero-section h2 {
+    font-size: 2.2em;
+  }
+  .hero-section p {
+    font-size: 1.1em;
+  }
+  .content-section h2 {
+    font-size: 1.8em;
+  }
 }
 
 @keyframes App-logo-spin {
