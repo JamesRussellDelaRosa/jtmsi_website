@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect, useRef } from 'react'; // Import useState, useEffect, useRef
 import './App.css';
 import logo from './logo.png'; // Importing the JTMSI logo
 
@@ -9,6 +9,35 @@ function App() {
     message: ''
   });
   const [formStatus, setFormStatus] = useState(''); // To show success/error messages
+  const observerRef = useRef(null);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections and animatable elements
+    const elementsToObserve = document.querySelectorAll('.content-section, .service-item, .team-member, .contact-form, .contact-details, .hero-content');
+    elementsToObserve.forEach((el) => {
+      observerRef.current.observe(el);
+    });
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const handleNavClick = (event) => {
     event.preventDefault();

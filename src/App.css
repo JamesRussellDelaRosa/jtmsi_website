@@ -150,6 +150,153 @@ body {
   animation: jumpAnimation 0.3s ease-in-out;
 }
 
+/* Scroll Animation Classes */
+.content-section,
+.service-item,
+.team-member,
+.contact-form,
+.contact-details {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
+}
+
+.content-section.animate-in,
+.service-item.animate-in,
+.team-member.animate-in,
+.contact-form.animate-in,
+.contact-details.animate-in,
+.hero-content.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays for service items */
+.service-item:nth-child(1).animate-in {
+  transition-delay: 0.1s;
+}
+
+.service-item:nth-child(2).animate-in {
+  transition-delay: 0.2s;
+}
+
+.service-item:nth-child(3).animate-in {
+  transition-delay: 0.3s;
+}
+
+/* Alternate animations for team members */
+.team-member:nth-child(odd).animate-in {
+  transform: translateX(0);
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.team-member:nth-child(even).animate-in {
+  transform: translateX(0);
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced hover effects with micro-animations */
+.service-item.animate-in:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(46, 91, 186, 0.25);
+}
+
+.team-member.animate-in:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(46, 91, 186, 0.2);
+}
+
+/* Floating animation for contact form elements */
+.contact-form input,
+.contact-form textarea {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.contact-form.animate-in input,
+.contact-form.animate-in textarea {
+  animation: floatIn 0.6s ease-out forwards;
+}
+
+.contact-form.animate-in input:nth-child(1) { animation-delay: 0.1s; }
+.contact-form.animate-in input:nth-child(2) { animation-delay: 0.2s; }
+.contact-form.animate-in textarea { animation-delay: 0.3s; }
+.contact-form.animate-in button { animation-delay: 0.4s; }
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section title scale animation */
+.content-section h2 {
+  transform: scale(0.9);
+  transition: all 0.6s ease-out;
+}
+
+.content-section.animate-in h2 {
+  transform: scale(1);
+  animation: titlePulse 0.8s ease-out;
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Progressive reveal for paragraphs */
+.content-section p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.3s;
+}
+
+.content-section.animate-in p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Content Animation Keyframes */
 @keyframes fadeInUp {
   from {
@@ -280,11 +427,10 @@ body {
   }
 }
 
-/* Main Section Animations */
+/* Main Section Base Styles */
 main section {
   padding: 60px 40px;
   border-bottom: 1px solid rgba(46, 91, 186, 0.1);
-  animation: fadeInUp 0.8s ease-out;
 }
 
 main section:last-child {
@@ -355,72 +501,109 @@ main section:last-child {
   box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4);
 }
 
-/* Hero Section Animations */
 .hero-content {
-  max-width: 700px; /* Limit width of hero content */
-  animation: fadeInLeft 1s ease-out;
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-section h2 {
-  animation: fadeInUp 1.2s ease-out;
+  font-size: 2.8em; /* Larger font size for hero heading */
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .hero-section p {
-  animation: fadeInUp 1.4s ease-out;
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 .cta-button {
-  animation: fadeInUp 1.6s ease-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 143, 0, 0.3);
 }
 
-/* Section Title Animations */
+/* Section Title Styles */
 .content-section h2 {
-  animation: fadeInUp 0.8s ease-out;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: var(--primary-blue);
+  text-align: center;
+  position: relative;
 }
 
-/* Services Grid Animations */
+/* Services Grid Base Styles */
 .services-grid {
-  animation: fadeIn 1s ease-out;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .service-item {
-  animation: scaleIn 0.8s ease-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(46, 91, 186, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
-.service-item:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.service-item:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.service-item:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-/* Team Member Animations */
+/* Team Member Base Styles */
 .team-member {
-  animation: fadeInUp 0.8s ease-out;
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(46, 91, 186, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.team-member:nth-child(odd) {
-  animation: fadeInLeft 0.8s ease-out;
-}
-
-.team-member:nth-child(even) {
-  animation: fadeInRight 0.8s ease-out;
-}
-
-/* Contact Form Animations */
+/* Contact Form Base Styles */
 .contact-form {
-  animation: slideInFromBottom 1s ease-out;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 2px solid var(--neutral-light);
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 10px rgba(46, 91, 186, 0.2);
+  transform: translateY(-2px);
 }
 
 .contact-details {
-  animation: fadeIn 1.2s ease-out;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .content-section h2 {
