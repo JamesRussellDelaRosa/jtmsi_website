@@ -56,7 +56,8 @@ function App() {
       if (result.success) {
         setFormStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Clear form
-      } else {
+      } 
+      else {
         setFormStatus(`Error: ${result.message || 'Could not send message.'}`);
       }
     } catch (error) {
@@ -70,7 +71,7 @@ function App() {
       <header className="App-header">
         <div className="logo-container">
           <img src={logo} className="App-logo-graphic" alt="TechSolutions Pro Graphic" />
-          <span className="logo-text">TechSolutions Pro</span>
+          <span className="logo-text">Jeannies Touch Manpower Services Inc.</span>
         </div>
         <nav className="App-nav">
           <a href="#home" onClick={handleNavClick}>Home</a>
