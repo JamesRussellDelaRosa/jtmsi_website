@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'; // Import useState, useEffect, useRef
 import './App.css';
 import logo from './logo.png'; // Importing the JTMSI logo
+import teamPhoto1 from './team-photo-1.jpg'; // Team photo for hero background
+import teamPhoto2 from './team-photo-2.jpg'; // Team photo for about section
 
 function App() {
   const [formData, setFormData] = useState({
@@ -29,7 +31,7 @@ function App() {
     }, observerOptions);
 
     // Observe all sections and animatable elements
-    const elementsToObserve = document.querySelectorAll('.content-section, .service-item, .team-member, .contact-form, .contact-details, .hero-content');
+    const elementsToObserve = document.querySelectorAll('.content-section, .service-item, .team-member, .contact-form, .contact-details, .hero-content, .about-image');
     elementsToObserve.forEach((el) => {
       observerRef.current.observe(el);
     });
@@ -143,7 +145,8 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="hero-section">
+        <section id="home" className="hero-section" style={{backgroundImage: `url(${teamPhoto1})`}}>
+          <div className="hero-overlay"></div>
           <div className="hero-content">
             <h2>Quality Manpower Solutions for Your Business Success</h2>
             <p>We provide reliable and skilled workforce solutions to help your business thrive. From recruitment to workforce management, we deliver excellence in human resource services.</p>
@@ -152,10 +155,17 @@ function App() {
         </section>
 
         <section id="about" className="content-section">
-          <h2>About Our Company</h2>
-          <p>
-            Jeannies Touch Manpower Services Inc. is a trusted partner in workforce solutions. We specialize in connecting skilled professionals with businesses that need quality talent. Our commitment to excellence and personalized service has made us a leader in the manpower industry, helping both employers and job seekers achieve their goals.
-          </p>
+          <div className="about-content-wrapper">
+            <div className="about-text">
+              <h2>About Our Company</h2>
+              <p>
+                Jeannies Touch Manpower Services Inc. is a trusted partner in workforce solutions. We specialize in connecting skilled professionals with businesses that need quality talent. Our commitment to excellence and personalized service has made us a leader in the manpower industry, helping both employers and job seekers achieve their goals.
+              </p>
+            </div>
+            <div className="about-image">
+              <img src={teamPhoto2} alt="Our professional team at JTMSI" className="team-photo" />
+            </div>
+          </div>
         </section>
 
         <section id="services" className="content-section alt-background">
