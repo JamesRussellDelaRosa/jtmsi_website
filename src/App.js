@@ -4,6 +4,26 @@ import logo from './logo.png'; // Importing the JTMSI logo
 import teamPhoto1 from './team-photo-1.jpg'; // Team photo for hero background
 import teamPhoto2 from './team-photo-2.jpg'; // Team photo for about section
 
+// Material-UI Icons
+import {
+  Home,
+  Business,
+  Work,
+  ContactMail,
+  Menu,
+  Close,
+  Visibility,
+  Rocket,
+  Star,
+  LocationOn,
+  Phone,
+  Facebook,
+  Send,
+  School,
+  PersonAdd,
+  Schedule
+} from '@mui/icons-material';
+
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -31,7 +51,7 @@ function App() {
     }, observerOptions);
 
     // Observe all sections and animatable elements
-    const elementsToObserve = document.querySelectorAll('.content-section, .service-item, .team-member, .contact-form, .contact-details, .hero-content, .about-image');
+    const elementsToObserve = document.querySelectorAll('.content-section, .service-item, .contact-form, .contact-details, .hero-content, .about-image');
     elementsToObserve.forEach((el) => {
       observerRef.current.observe(el);
     });
@@ -131,16 +151,13 @@ function App() {
           <span className="logo-text">Jeannies Touch Manpower Services Inc.</span>
         </div>
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
+          {mobileMenuOpen ? <Close /> : <Menu />}
         </button>
         <nav className={`App-nav ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}>
-          <a href="#home" onClick={handleNavClick}>Home</a>
-          <a href="#about" onClick={handleNavClick}>About</a>
-          <a href="#services" onClick={handleNavClick}>Services</a>
-          <a href="#team" onClick={handleNavClick}>Team</a>
-          <a href="#contact" onClick={handleNavClick}>Contact</a>
+          <a href="#home" onClick={handleNavClick}><Home className="nav-icon" /> Home</a>
+          <a href="#about" onClick={handleNavClick}><Business className="nav-icon" /> About</a>
+          <a href="#services" onClick={handleNavClick}><Work className="nav-icon" /> Services</a>
+          <a href="#contact" onClick={handleNavClick}><ContactMail className="nav-icon" /> Contact</a>
         </nav>
       </header>
 
@@ -150,7 +167,10 @@ function App() {
           <div className="hero-content">
             <h2>Quality Manpower Solutions for Your Business Success</h2>
             <p>We provide reliable and skilled workforce solutions to help your business thrive. From recruitment to workforce management, we deliver excellence in human resource services.</p>
-            <button className="cta-button">Connect With Us Today</button>
+            <button className="cta-button">
+              <ContactMail className="button-icon" />
+              Connect With Us Today
+            </button>
           </div>
         </section>
 
@@ -159,8 +179,34 @@ function App() {
             <div className="about-text">
               <h2>About Our Company</h2>
               <p>
-                Jeannies Touch Manpower Services Inc. is a trusted partner in workforce solutions. We specialize in connecting skilled professionals with businesses that need quality talent. Our commitment to excellence and personalized service has made us a leader in the manpower industry, helping both employers and job seekers achieve their goals.
+                We're committed in bringing the best system and technology to equip our services and provide the clients with the best people for their business operation.
               </p>
+              
+              <div className="company-values">
+                <div className="value-item">
+                  <div className="value-icon">
+                    <Visibility />
+                  </div>
+                  <h3>Our Vision</h3>
+                  <p>We aim to be the preferred and most trusted service provider in the job outsourcing industry nationwide.</p>
+                </div>
+                
+                <div className="value-item">
+                  <div className="value-icon">
+                    <Rocket />
+                  </div>
+                  <h3>Our Mission</h3>
+                  <p>We are committed to providing consistent and quality service by ensuring the competence of our employees, collaboration of our management, and compliance with our laws and regulations.</p>
+                </div>
+                
+                <div className="value-item">
+                  <div className="value-icon">
+                    <Star />
+                  </div>
+                  <h3>Quality Policy</h3>
+                  <p>Jeannie's Touch Manpower Solutions Inc. commits to the principle that Quality is everyone's responsibility, which generates Total Customer Satisfaction (TCS) in terms of Quality, Cost, Delivery, and Service (QCDS). We pledge to continually improve our Quality Management System (QMS), including commitment to satisfy applicable legal requirements and business processes, to produce services through dedicated implementation of our Quality Organization.</p>
+                </div>
+              </div>
             </div>
             <div className="about-image">
               <img src={teamPhoto2} alt="Our professional team at JTMSI" className="team-photo" />
@@ -172,29 +218,26 @@ function App() {
           <h2>Our Services</h2>
           <div className="services-grid">
             <div className="service-item">
+              <div className="service-icon">
+                <PersonAdd />
+              </div>
               <h3>Staff Recruitment</h3>
               <p>Professional recruitment services to find the right talent for your organization's needs.</p>
             </div>
             <div className="service-item">
+              <div className="service-icon">
+                <Schedule />
+              </div>
               <h3>Workforce Management</h3>
               <p>Comprehensive workforce solutions including scheduling, compliance, and performance management.</p>
             </div>
             <div className="service-item">
+              <div className="service-icon">
+                <School />
+              </div>
               <h3>Training & Development</h3>
               <p>Skills development programs to enhance your team's capabilities and productivity.</p>
             </div>
-          </div>
-        </section>
-
-        <section id="team" className="content-section">
-          <h2>Our Team</h2>
-          <div className="team-member">
-            <h3>Jeannie Santos</h3>
-            <p>Founder & CEO</p>
-          </div>
-          <div className="team-member">
-            <h3>Maria Rodriguez</h3>
-            <p>HR Director</p>
           </div>
         </section>
 
@@ -225,12 +268,34 @@ function App() {
               onChange={handleInputChange} 
               required
             ></textarea>
-            <button type="submit" className="cta-button">Send Message</button>
+            <button type="submit" className="cta-button">
+              <Send className="button-icon" />
+              Send Message
+            </button>
           </form>
           {formStatus && <p className="form-status">{formStatus}</p>}
           <div className="contact-details">
-            <p>Email: info@jtmsi.com</p>
-            <p>Phone: +63 (02) 8123-4567</p>
+            <h3>Contact Information</h3>
+            <div className="contact-item">
+              <LocationOn className="contact-icon" />
+              <div>
+                <strong>Address:</strong><br />
+                RL Building, Francisco Village, Brgy. Pulong Sta. Cruz,<br />
+                Sta. Rosa City, Laguna
+              </div>
+            </div>
+            <div className="contact-item">
+              <Phone className="contact-icon" />
+              <div>
+                <strong>Phone:</strong> (049) 539-3575, (049) 539-0315
+              </div>
+            </div>
+            <div className="contact-item">
+              <Facebook className="contact-icon" />
+              <div>
+                <strong>Facebook:</strong> JeanniesTouch Jtmsi
+              </div>
+            </div>
           </div>
         </section>
       </main>
