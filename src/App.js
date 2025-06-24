@@ -177,25 +177,24 @@ function App() {
         <section id="about" className="content-section">
           <div className="about-content-wrapper">
             <div className="about-text">
-              <h2>About Our Company</h2>
-              <p>
-                We're committed in bringing the best system and technology to equip our services and provide the clients with the best people for their business operation.
-              </p>
+              <h2>Three decades of excellence, the trusted choice of leading industry firms.</h2>
               
               <div className="company-values">
                 <div className="value-item">
                   <div className="value-icon">
-                    <Visibility />
+                    <Business />
                   </div>
-                  <h3>Our Vision</h3>
-                  <p>We aim to be the preferred and most trusted service provider in the job outsourcing industry nationwide.</p>
+                  <h3>Our Legacy</h3>
+                  <p>Among the multitude of manpower service providers, Jeannie’s Touch Manpower Solutions, Inc. (JTMSI) stands out as a distinguished family-owned enterprise, expertly navigating the dynamic landscape of staffing and management services since its inception. With an impressive 37-year track record, JTMSI has continually optimized efficiency and operational fluidity across diverse industries, seamlessly connecting talent with the right tasks.</p>
+                  <p>Committed to the highest standards of compliance and excellence, JTMSI holds DOLE 174 Registration, DPA Certification, and multiple government accreditation certificates, ensuring full adherence to legal and regulatory requirements. The company's dedication to quality was further solidified when it achieved ISO 9001:2015 Certification in January 2018, and it is actively preparing for recertification to reinforce its commitment to industry-leading service standards.</p>
                 </div>
                 
                 <div className="value-item">
                   <div className="value-icon">
                     <Rocket />
                   </div>
-                  <h3>Our Mission</h3>
+                  <h3>Our Purpose</h3>
+                  <p>We aim to be the preferred and most trusted service provider in the job contracting industry.</p>
                   <p>We are committed to providing consistent and quality service by ensuring the competence of our employees, collaboration of our management, and compliance with our laws and regulations.</p>
                 </div>
                 
@@ -203,8 +202,8 @@ function App() {
                   <div className="value-icon">
                     <Star />
                   </div>
-                  <h3>Quality Policy</h3>
-                  <p>Jeannie's Touch Manpower Solutions Inc. commits to the principle that Quality is everyone's responsibility, which generates Total Customer Satisfaction (TCS) in terms of Quality, Cost, Delivery, and Service (QCDS). We pledge to continually improve our Quality Management System (QMS), including commitment to satisfy applicable legal requirements and business processes, to produce services through dedicated implementation of our Quality Organization.</p>
+                  <h3>Our Quality Policy</h3>
+                  <p>At Jeannie’s Touch Manpower Solutions, Inc. (JTMSI), we believe that quality is a shared responsibility, driving total customer satisfaction in Quality, Cost, Delivery, and Service. We are committed to continuously improving our Quality Management System, ensuring compliance with legal requirements and enhancing business processes through a dedicated and efficient Quality Organization.</p>
                 </div>
               </div>
             </div>
